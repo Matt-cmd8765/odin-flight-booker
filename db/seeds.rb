@@ -9,4 +9,7 @@
 #   end
 
 
-Airport.create([{code:'LAX'},{code:'SYD'}, {code:'EWR'}])
+# Airport.create([{code:'LAX'},{code:'SYD'}, {code:'EWR'}])
+# Airport.create(code:'ORL')
+
+Flight.create(departure_airport: Airport.first, arrival_airport: Airport.second, start:DateTime.new(2024,1,2,3), flight_duration: 5)
