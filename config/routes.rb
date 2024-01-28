@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   root "flights#index"
+
+  get '/search', to: 'flights#search'
 end

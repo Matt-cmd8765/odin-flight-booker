@@ -6,6 +6,12 @@ class FlightsController < ApplicationController
     @flights = Flight.all
   end
 
+  def search
+    departure_airport = params[:departure_airport]
+    arrival_airport = params[:arrival_airport]
+    @flights = Flight.where("departure_airport_id LIKE ? AND arrival_airport_id LIKE ?" , departure_airport.id, arrival_airport.id)
+  end
+
   # GET /flights/1 or /flights/1.json
   def show
   end
