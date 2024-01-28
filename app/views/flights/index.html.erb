@@ -5,14 +5,14 @@
 <%= form_with url: "/search", method: :get do |form| %>
   <select name="departure_airport" id="dropdown">
   <option selected disabled>Deprature Airport</option>
-  <%= @flights.each do |f| %>
-    <option value="<%= f.departure_airport%>"><%=f.departure_airport.code%></option>
+  <%= @flights.each.uniq do |f| %>
+    <option value="<%= f.departure_airport.id%>"><%=f.departure_airport.code%></option>
   <% end %>
   </select>
   <select name="arrival_airport" id="dropdown">
   <option selected disabled>Arrival Airport</option>
-  <%= @flights.each do |f| %>
-  <option value="<%= f.arrival_airport_airport%>"><%=f.departure_airport.code%></option>
+  <%= @flights.each.uniq do |f| %>
+  <option value="<%= f.arrival_airport.id%>"><%=f.arrival_airport.code%></option>
   <% end %>
   </select>
 <%= submit_tag("Search") %>
