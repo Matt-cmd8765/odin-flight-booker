@@ -4,6 +4,11 @@ class FlightsController < ApplicationController
   # GET /flights or /flights.json
   def index
     @flights = Flight.all
+    # This is how to get non-repeating airport codes. Not the best way but idgaf
+    d_flight_options = Flight.all.map{ |f| [ f.departure_airport.code, f.departure_airport_id ] }
+    @dflights = d_flight_options.uniq
+    a_flight_options = Flight.all.map{ |f| [ f.arrival_airport.code, f.arrival_airport.id ]}
+    @aflights = a_flight_options.uniq
   end
 
   def search

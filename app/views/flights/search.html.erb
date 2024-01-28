@@ -1,1 +1,6 @@
-<h1>Success!</h1>
+<% @flights.each do |flight| %>
+  <%= flight.departure_airport.code %><br>
+  <%= flight.arrival_airport.code %><br>
+<% end %>
+
+
