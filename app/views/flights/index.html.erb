@@ -18,8 +18,6 @@
     <option value="3">3</option>
     <option value="4">4</option>
   </select>
-  <select name="date" id="date">
-    <%= select_tag "flight", options_from_collection_for_select(@dates, 'flight') %>
-  </select>
+<%= date_field_tag 'dates', min: Date.today %>
 <%= submit_tag("Search") %>
 <% end %>
