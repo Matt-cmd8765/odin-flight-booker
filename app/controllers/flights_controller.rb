@@ -3,7 +3,7 @@ class FlightsController < ApplicationController
 
   # GET /flights or /flights.json
   def index
-    @flights = Flight.all
+
     # This is how to get non-repeating airport codes for the dropdown. Not the best way but idgaf
     d_flight_options = Flight.all.map{ |f| [ f.departure_airport.code, f.departure_airport_id ] }
     @dflights = d_flight_options.uniq
@@ -13,10 +13,17 @@ class FlightsController < ApplicationController
   end
 
   def search
+    # This is how to get non-repeating airport codes for the dropdown. Not the best way but idgaf
+    d_flight_options = Flight.all.map{ |f| [ f.departure_airport.code, f.departure_airport_id ] }
+    @dflights = d_flight_options.uniq
+    a_flight_options = Flight.all.map{ |f| [ f.arrival_airport.code, f.arrival_airport.id ]}
+    @aflights = a_flight_options.uniq
+    @dates = Flight.all.map{ |f| [f.start] }
+
     departure_airport = params[:departure_airport]
     arrival_airport = params[:arrival_airport]
     start = Date.parse(params[:dates])
-    @flights = Flight.where(departure_airport_id: departure_airport, arrival_airport_id: arrival_airport, start: start.all_day)
+    @search_flights = Flight.where(departure_airport_id: departure_airport, arrival_airport_id: arrival_airport, start: start.all_day)
   end
 
   # GET /flights/1 or /flights/1.json
@@ -35,7 +42,7 @@ class FlightsController < ApplicationController
   # POST /flights or /flights.json
   def create
     @flight = Flight.new(flight_params)
-
+  
     respond_to do |format|
       if @flight.save
         format.html { redirect_to flight_url(@flight), notice: "Flight was successfully created." }
