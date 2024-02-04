@@ -10,6 +10,14 @@ class FlightsController < ApplicationController
     a_flight_options = Flight.all.map{ |f| [ f.arrival_airport.code, f.arrival_airport.id ]}
     @aflights = a_flight_options.uniq
     @dates = Flight.all.map{ |f| [f.start] }
+    @search_flights = nil
+    
+    if search_submitted
+      departure_airport = params[:departure_airport]
+      arrival_airport = params[:arrival_airport]
+      start = Date.parse(params[:dates])
+      @search_flights = Flight.where(departure_airport_id: departure_airport, arrival_airport_id: arrival_airport, start: start.all_day)
+    end 
   end
 
   def search
@@ -86,5 +94,9 @@ class FlightsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def flight_params
       params.fetch(:flight, {})
+    end
+
+    def search_submitted
+      params[:departure_airport] && params[:arrival_airport] && Date.parse(params[:dates])
     end
 end
