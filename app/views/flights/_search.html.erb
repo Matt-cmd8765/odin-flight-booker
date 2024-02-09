@@ -1,4 +1,4 @@
-<%#= form_with(model: booking), method: :get do |form|%>
+<%= form_with(model: booking, url: new_booking_path), method: :get do |form|%>
   <% form.hidden_field :passengers, value: @passengers%>
   <% @search_flights.each do |flight| %>
     <p>Select This Flight cunt
@@ -26,4 +26,5 @@
         </p>
     </div>
   <% end %>
-<%# end %>
+  <%= form.submit%>
+<% end %>
