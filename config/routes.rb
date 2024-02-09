@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   root "flights#index"
 
   get '/search', to: 'flights#index'
+  get '/rails/info/routes' => 'routes'
 end

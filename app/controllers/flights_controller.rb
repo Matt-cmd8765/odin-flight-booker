@@ -16,6 +16,7 @@ class FlightsController < ApplicationController
     if search_submitted
       departure_airport = params[:departure_airport]
       arrival_airport = params[:arrival_airport]
+      @passengers = params[:passengers]
       start = Date.parse(params[:dates])
       @search_flights = Flight.where(departure_airport_id: departure_airport, arrival_airport_id: arrival_airport, start: start.all_day)
     end 
