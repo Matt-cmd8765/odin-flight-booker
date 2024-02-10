@@ -1,3 +1,15 @@
-<h1>I'll fucking stab ya cunt</h1>
+<h1>Let's complete your booking!</h1>
 
-<%= @flight %>
+<%= form_with model: @booking do |form| %>
+  <% @no_of_passengers.to_i.times do %>
+    <%= form.fields_for :passengers do |sub_form| %>
+      <%= sub_form.label :name %>
+      <%= sub_form.text_field :name %>
+
+      <%= sub_form.label :email %>
+      <%= sub_form.text_field :email %>
+    <% end %>
+  <% end %>
+  <%= form.hidden_field :flight_id, value: @flight_id %>
+  <%= form.submit 'Confirm Booking Bitch'%>
+<% end %>
