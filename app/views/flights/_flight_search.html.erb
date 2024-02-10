@@ -1,0 +1,19 @@
+<%= form_with url: flights_path, method: :get do |form| %>
+  <select name="departure_airport" id="dropdown">
+    <option selected disabled>Departure Airport</option>
+    <%= options_for_select(@dflights) %>
+  </select>
+  <select name="arrival_airport" id="dropdown">
+    <option selected disabled>Arrival Airport</option>
+    <%= options_for_select(@aflights) %>
+  </select>
+  <select name="passengers" id="passengers">
+    <option selected disabled>Number of Passengers</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+  </select>
+<%= date_field_tag 'dates', min: Date.today %>
+<%= submit_tag("Search") %>
+<% end %>

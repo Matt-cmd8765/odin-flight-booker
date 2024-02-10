@@ -5,9 +5,9 @@ class FlightsController < ApplicationController
   def index
 
     # This is how to get non-repeating airport codes for the dropdown. Not the best way but idgaf
-    d_flight_options = Flight.all.map{ |f| [ f.departure_airport.code, f.departure_airport_id ] }
+    d_flight_options = Flight.all.map{ |f| [f.departure_airport.code, f.departure_airport_id] }
     @dflights = d_flight_options.uniq
-    a_flight_options = Flight.all.map{ |f| [ f.arrival_airport.code, f.arrival_airport.id ]}
+    a_flight_options = Flight.all.map{ |f| [f.arrival_airport.code, f.arrival_airport.id]}
     @aflights = a_flight_options.uniq
     @dates = Flight.all.map{ |f| [f.start] }
     # set search_flights to nil initially
@@ -81,7 +81,8 @@ class FlightsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def flight_params
-      params.fetch(:flight, {})
+      # params.fetch(:flight, {})
+      params.require(:flight).permit(bookings_attributes: [ :_destroy])
     end
 
     def search_submitted
