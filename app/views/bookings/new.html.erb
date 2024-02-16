@@ -1,15 +1,14 @@
 <h1>Let's complete your booking!</h1>
 
 <%= form_with model: @booking do |form| %>
-  <% @no_of_passengers.to_i.times do %>
     <%= form.fields_for :passengers do |sub_form| %>
       <%= sub_form.label :name %>
       <%= sub_form.text_field :name %>
-
+      <br>
       <%= sub_form.label :email %>
       <%= sub_form.text_field :email %>
+      <br>
     <% end %>
-  <% end %>
   <%= form.hidden_field :flight_id, value: @flight_id %>
-  <%= form.submit 'Confirm Booking Bitch'%>
+  <%= form.submit 'Confirm Booking'%>
 <% end %>
