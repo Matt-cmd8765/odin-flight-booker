@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
   
     respond_to do |format|
       if @booking.save
-        format.html { redirect_to booking_path(@booking), notice: "Booking was successfully created." }
+        format.html { redirect_to booking_url(@booking), notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -22,6 +22,7 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
+    @flight = Flight.find(@booking.flight_id)
   end
 
   private
