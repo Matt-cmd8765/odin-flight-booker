@@ -65,3 +65,9 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+# required for bootstrap
+gem 'dartsass-sprockets'
+
+#Bootstrap gem
+gem 'bootstrap', '~> 5.3.2'
