@@ -1,19 +1,37 @@
-<%= form_with url: flights_path, method: :get do |form| %>
-  <select name="departure_airport" class="form-select" aria-label="Default select example">
-    <option selected disabled>Departure Airport</option>
-    <%= options_for_select(@dflights) %>
-  </select>
-  <select name="arrival_airport" id="dropdown">
-    <option selected disabled>Arrival Airport</option>
-    <%= options_for_select(@aflights) %>
-  </select>
-  <select name="passengers" id="passengers">
-    <option selected disabled>Number of Passengers</option>
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-  </select>
-<%= date_field_tag 'dates', min: Date.today %>
-<%= submit_tag("Search") %>
-<% end %>
+<div class="container">
+  <%= form_with url: flights_path, method: :get do |form| %>
+  <div class="row">
+    <div class="col-sm">
+      <select name="departure_airport" class="form-select" aria-label="Default select example">
+        <option selected disabled>Departure Airport</option>
+        <%= options_for_select(@dflights) %>
+      </select>
+    </div>
+
+    <div class="col-sm">
+      <select name="departure_airport" class="form-select" aria-label="Default select example">
+        <option selected disabled>Arrival Airport</option>
+        <%= options_for_select(@aflights) %>
+      </select>
+    </div>
+
+    <div class="col-sm">
+      <select name="departure_airport" class="form-select" aria-label="Default select example">
+        <option selected disabled>Number of Passengers</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+    </div>
+
+    <div class="col-sm">
+      <%= date_field_tag 'dates', min: Date.today %>
+    </div>
+
+    <div class="col-sm">
+      <%= submit_tag("Search", class: 'btn btn-primary') %> 
+    </div>
+  <% end %>
+  </div>
+</div>
