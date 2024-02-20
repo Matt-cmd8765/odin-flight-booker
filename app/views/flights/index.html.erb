@@ -4,17 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <%= stylesheet_link_tag "layout" %>
   <title>Flight Booker</title>
 </head>
-<style>
-  body {
-    background-image: url('plane.jpg');
-    background-size: 100%;
-  }
-</style>
 <body>
   <div class="px-4 py-5 my-5 text-center">
-    <h1 class="display-5 fw-bold text-body-emphasis">Select Your Flight</h1>
+    <h1>Select Your Flight</h1>
   </div>
 
   <div>
@@ -22,14 +17,15 @@
   </div>
 
   <% if @search_flights.nil?%>
-    <h1>Flights will appear here</h1>
+    
   <% elsif @search_flights.empty?%>
     <h1>You done fucked up A-ARON!</h1>
   <% else %>
     <%= render partial: 'search_result' %>
   <% end %>
 </body>
-
-<p>background image from https://www.vecteezy.com/ Yulia Gapeenko</p>
+<footer>
+  <p>background image from https://www.vecteezy.com/ Yulia Gapeenko</p>
+</footer>
 </html>
 
