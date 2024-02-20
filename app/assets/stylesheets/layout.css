@@ -1,7 +1,3 @@
 input[type="date"]::-webkit-calendar-picker-indicator {
     height: 1.9em;
 }
-
-body {
-    background-image: url('images/2018-12-20-02_generated[1].jpg');
-}
