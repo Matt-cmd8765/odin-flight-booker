@@ -13,6 +13,11 @@ h1 {
     font-size: 4em;
 }
 
+h3 {
+    color: aliceblue;
+    font-weight: bold;
+}
+
 footer {
     position: fixed;
     bottom: 0;
