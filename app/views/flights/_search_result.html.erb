@@ -1,29 +1,32 @@
 <h3>Flight Results</h3>
-<table class="table table-sm">
-  <thead class="table-light">
-    <tr>
-      <th scope="col">Departure Airport</th>
-      <th scope="col">Arrival Airport</th>
-      <th scope="col">Start Time</th>
-      <th scope="col">Flight Length</th>
-      <th scope="col">Book Flight</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @search_flights.each do |flight| %>
-        <tr>
-          <td><%= flight.departure_airport.code %></td>
-          <td><%= flight.arrival_airport.code %></td>
-          <td><%= flight.start %></td>
-          <td><%= flight.flight_duration %> hours</td>
-          <td>
-              <%= form_with url: new_booking_path, method: :get do |f| %>
-                <%= f.radio_button :flight_id, flight.id  %>
-                <%= f.hidden_field :no_of_passengers, value: params[:passengers]  %>
-          </td>
-        </tr>
-  </tbody>
-</table>
+<div class="d-flex justify-content-center">
+  <table class="table table-sm" style="width: 75%">
+    <thead class="table-light">
+      <tr>
+        <th scope="col">Departure Airport</th>
+        <th scope="col">Arrival Airport</th>
+        <th scope="col">Start Time</th>
+        <th scope="col">Flight Length</th>
+        <th scope="col">Book Flight</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @search_flights.each do |flight| %>
+          <tr>
+            <td><%= flight.departure_airport.code %></td>
+            <td><%= flight.arrival_airport.code %></td>
+            <td><%= flight.start %></td>
+            <td><%= flight.flight_duration %> hours</td>
+            <td>
+                <%= form_with url: new_booking_path, method: :get do |f| %>
+                  <%= f.radio_button :flight_id, flight.id  %>
+                  <%= f.hidden_field :no_of_passengers, value: params[:passengers]  %>
+            </td>
+          </tr>
+    </tbody>
+  </table>
+</div>
+
 <div class="d-grid gap-2 col-2 mx-auto">
   <%= f.submit 'Book', class:'btn btn-success'%>
 </div>
