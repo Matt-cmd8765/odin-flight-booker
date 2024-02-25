@@ -1,7 +1,7 @@
 <h3>Flight Results</h3>
 <div class="d-flex justify-content-center">
   <%= form_with url: new_booking_path, method: :get do |f| %>
-  <table class="table table-sm" style="width: 75%">
+  <table class="table table-sm">
     <thead class="table-light">
       <tr>
         <th scope="col">Departure Airport</th>
@@ -19,14 +19,14 @@
             <td><%= flight.start %></td>
             <td><%= flight.flight_duration %> hours</td>
             <td>
-                <%= f.radio_button :flight_id, flight.id  %>
+                <%= f.radio_button :flight_id, flight.id, required: true %>
                 <%= f.hidden_field :no_of_passengers, value: params[:passengers]  %>
-                <%= f.submit 'Book', class:'btn btn-success'%>
             <% end %>
             </td>
           </tr>
     </tbody>
   </table>
+  <%= f.submit 'Book', class:'btn btn-success'%>
   <% end %>
 </div>
 
