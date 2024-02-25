@@ -19,14 +19,12 @@
     <% if @search_flights.nil?%>
       
     <% elsif @search_flights.empty?%>
-      <h1>You done fucked up A-ARON!</h1>
+      <h1>No Flights Found</h1>
     <% else %>
       <%= render partial: 'search_result' %>
     <% end %>
   </div>
 </body>
-<footer>
-  <p>background image from https://www.vecteezy.com/ Yulia Gapeenko</p>
-</footer>
+
 </html>
 

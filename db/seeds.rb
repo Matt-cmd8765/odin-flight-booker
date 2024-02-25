@@ -12,18 +12,18 @@
 # Airport.create([{code:'LAX'},{code:'SYD'}, {code:'EWR'}])
 # Airport.create(code:'ORL')
 
-# Flight.create(departure_airport: Airport.first, arrival_airport: Airport.second, start:DateTime.new(2024,1,2,3), flight_duration: 5)
+Flight.create(departure_airport: Airport.first, arrival_airport: Airport.second, start:DateTime.new(2024,1,2,6), flight_duration: 5)
 
-airports = Airport.all
+# airports = Airport.all
 
-airports.each do |depart|
-  airports.reverse.each do |arrive|
-    next if depart == arrive
-      Flight.create(
-        start: DateTime.new(2024, rand(1..12), rand(1..25), rand(6..23), rand(0.59)),
-        flight_duration: rand(1..12),
-        departure_airport: depart,
-        arrival_airport: arrive
-      )
-  end
-end
+# airports.each do |depart|
+#   airports.reverse.each do |arrive|
+#     next if depart == arrive
+#       Flight.create(
+#         start: DateTime.new(2024, rand(1..12), rand(1..25), rand(6..23), rand(0.59)),
+#         flight_duration: rand(1..12),
+#         departure_airport: depart,
+#         arrival_airport: arrive
+#       )
+#   end
+# end
