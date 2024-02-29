@@ -5,6 +5,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 body {
     background-image: url('plane.jpg');
     background-size: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 h1 {
@@ -19,11 +22,21 @@ h3 {
     padding-top: 2em;
 }
 
+label {
+    color: aliceblue;
+    font-weight: bold;
+    padding-bottom: 2em;
+}
+
 footer {
-    position: fixed;
-    bottom: 0;
+    position: relative;
     width: 100%;
     font-size: x-small;
     color: aliceblue;
     text-align: center;
+    margin-top: auto;
+}
+
+#confirm_btn {
+    margin-top: 1em;
 }
