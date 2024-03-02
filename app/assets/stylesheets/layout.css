@@ -22,6 +22,11 @@ h3 {
     padding-top: 2em;
 }
 
+h4 {
+    color: aliceblue;
+    font-weight: bold;
+}
+
 label {
     color: aliceblue;
     font-weight: bold;
