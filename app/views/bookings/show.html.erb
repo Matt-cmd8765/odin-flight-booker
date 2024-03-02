@@ -1,23 +1,45 @@
 <p style="color: green"><%= notice %></p>
+<h1>Your Booking Information</h1>
 
-<h1>Show Page</h1>
+<div class="row justify-content-center">
+  <div class="col-8">
+    <h3>Passenger Info</h3>
+    <table class="table table-hover">
+      <thead class="table-light">
+        <tr>
+          <th scope='col'>Name</th>
+          <th scope='col'>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @booking.passengers.each do |passenger| %>
+          <tr> 
+            <td><%= passenger.name %></td>
+            <td><%= passenger.email %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<% @booking.passengers.each do |passenger| %>
-  <h3>Name</h3>
-  <%= passenger.name %>
+    <h3>Flight Info</h3>
+    <table class="table table-hover">
+      <thead class="table-light">
+        <tr>
+          <th scope='col'>Departing Airport</th>
+          <th scope='col'>Arriving Airport</th>
+          <th scope='col'>Start Time</th>
+          <th scope='col'>Duration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= @flight.departure_airport.code %></td>
+          <td><%= @flight.arrival_airport.code %></td>
+          <td><%= @flight.start%></td>
+          <td><%= @flight.flight_duration%> hours</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-  <h3>Email</h3>
-  <%= passenger.email %>
-<% end %>
-
-<h3>Departing From:</h3>
-<%= @flight.departure_airport.code %>
-
-<h3>Depart Time</h3>
-<%= @flight.start%>
-
-<h3>Arriving At:</h3>
-<%= @flight.arrival_airport.code %>
-
-<h3>Flight Duration:</h3>
-<%= @flight.flight_duration%>hours
