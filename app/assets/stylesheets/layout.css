@@ -2,10 +2,17 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     height: 1.9em;
 }
 
+html {
+    height: 100%;
+    width: 100%;
+}
+
 body {
     background-image: url('plane.jpg');
     background-size: 100%;
     min-height: 100vh;
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -34,12 +41,11 @@ label {
 }
 
 footer {
-    position: relative;
-    width: 100%;
     font-size: x-small;
     color: aliceblue;
     text-align: center;
     margin-top: auto;
+    width: 100%;
 }
 
 #confirm_btn {
