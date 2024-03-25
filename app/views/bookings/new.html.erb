@@ -3,34 +3,48 @@
 </div>
 <div class="row justify-content-center">
   <div class="col-4">
-    <%= form_with model: @booking do |form| %>
-      <% if @booking.errors.any? %>
-        <div style="color: red">
-          <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this event from being saved:</h2>
-          <ul>
-            <% @booking.errors.each do |error| %>
-              <li><%= error.full_message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-        <% i = 1 %>
-        <%= form.fields_for :passengers do |sub_form| %>
-          <h4> Passenger <%= i %> </h4>
-          <div class="form-group">
-            <%= sub_form.label :name, class: 'col-form-label' %>
-            <%= sub_form.text_field :name, class: 'form-control' %>
+    <div data-controller="form" data-form-target='parent'>
+      <%= form_with model: @booking do |form| %>
+        <% if @booking.errors.any? %>
+          <div style="color: red">
+            <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this event from being saved:</h2>
+            <ul>
+              <% @booking.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
           </div>
-          <div class="form-group">
-            <%= sub_form.label :email, class: 'col-form-label' %>
-            <%= sub_form.text_field :email, class: 'form-control' %>
-          </div>
-          <% i += 1 %>
         <% end %>
-      <%= form.hidden_field :flight_id, value: @flight_id %>
-      <%= form.submit 'Confirm Booking', class:'btn btn-primary', id:'confirm_btn'%>
-    <% end %> 
+          <% i = 1 %>
+          <%= form.fields_for :passengers do |sub_form| %>
+            <h4> Passenger <%= i %> </h4>
+            <div id='name' class="form-group">
+              <%= sub_form.label :name, class: 'col-form-label' %>
+              <%= sub_form.text_field :name, class: 'form-control' %>
+            </div>
+            <div id='email'class="form-group">
+              <%= sub_form.label :email, class: 'col-form-label' %>
+              <%= sub_form.text_field :email, class: 'form-control' %>
+            </div>
+            <div id="here" class="form-group"></div>
+            <% i += 1 %>
+            <template id="template">
+              <h4> Passenger <%= i + 1 %> </h4>
+              <div id='template_name' class="form-group">
+                <%= sub_form.label :name, class: 'col-form-label' %>
+                <%= sub_form.text_field :name, class: 'form-control' %>
+              </div>
+              <!--<div id='email'class="form-group">
+                <%= sub_form.label :email, class: 'col-form-label' %>
+                <%= sub_form.text_field :email, class: 'form-control' %>
+              </div>-->
+            </template>
+          <% end %>
+          <div id="extra"></div>
+        <%= form.hidden_field :flight_id, value: @flight_id %>
+        <%= form.submit 'Confirm Booking', class:'btn btn-primary', id:'confirm_btn'%>
+      <% end %>
+      <button data-action="form#add">Add a Passenger</button>
+    </div>
   </div>
 </div>
-
-
