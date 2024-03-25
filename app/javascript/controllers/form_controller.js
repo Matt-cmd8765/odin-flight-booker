@@ -17,4 +17,15 @@ export default class extends Controller {
         console.log('no dice');
     }
   }
+
+  remove() {
+    const extra = document.querySelector('#extra');
+    // This is one way to remove all children from a node
+    // extra is an object reference to an element
+    extra.removeChild(extra.lastChild);
+    // while (extra.firstChild) {
+    //   // The list is LIVE so it will re-index each call
+    //   extra.removeChild(extra.firstChild);
+    // }
+  }
 }

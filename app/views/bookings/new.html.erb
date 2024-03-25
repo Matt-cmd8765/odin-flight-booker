@@ -26,18 +26,20 @@
               <%= sub_form.label :email, class: 'col-form-label' %>
               <%= sub_form.text_field :email, class: 'form-control' %>
             </div>
-            <div id="here" class="form-group"></div>
             <% i += 1 %>
             <template id="template">
-              <h4> Passenger <%= i + 1 %> </h4>
-              <div id='template_name' class="form-group">
-                <%= sub_form.label :name, class: 'col-form-label' %>
-                <%= sub_form.text_field :name, class: 'form-control' %>
+              <div class="temp_info">
+                <h4> New Passenger </h4>
+                <div id='template_name' class="form-group">
+                  <%= sub_form.label :name, class: 'col-form-label' %>
+                  <%= sub_form.text_field :name, class: 'form-control' %>
+                </div>
+                <div id='email'class="form-group">
+                  <%= sub_form.label :email, class: 'col-form-label' %>
+                  <%= sub_form.text_field :email, class: 'form-control' %>
+                </div>
               </div>
-              <!--<div id='email'class="form-group">
-                <%= sub_form.label :email, class: 'col-form-label' %>
-                <%= sub_form.text_field :email, class: 'form-control' %>
-              </div>-->
+
             </template>
           <% end %>
           <div id="extra"></div>
@@ -45,6 +47,7 @@
         <%= form.submit 'Confirm Booking', class:'btn btn-primary', id:'confirm_btn'%>
       <% end %>
       <button data-action="form#add">Add a Passenger</button>
+      <button data-action="form#remove">Remove Passenger</button>
     </div>
   </div>
 </div>
