@@ -46,8 +46,10 @@
         <%= form.hidden_field :flight_id, value: @flight_id %>
         <%= form.submit 'Confirm Booking', class:'btn btn-primary', id:'confirm_btn'%>
       <% end %>
-      <button data-action="form#add">Add a Passenger</button>
-      <button data-action="form#remove">Remove Passenger</button>
+      <div class="buttons">
+        <button data-action="form#add" class='btn btn-primary'>Add a Passenger</button>
+        <button data-action="form#remove" class='btn btn-primary'>Remove Passenger</button>
+      </div>
     </div>
   </div>
 </div>
