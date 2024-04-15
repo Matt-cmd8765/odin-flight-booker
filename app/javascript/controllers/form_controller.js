@@ -20,7 +20,7 @@ export default class extends Controller {
 
   remove() {
     const extra = document.querySelector('#extra');
-    // This is one way to remove all children from a node
+    // Remove only the last child from the node. 
     // extra is an object reference to an element
     extra.removeChild(extra.lastChild);
     // while (extra.firstChild) {

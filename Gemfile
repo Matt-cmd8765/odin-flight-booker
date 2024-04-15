@@ -71,3 +71,6 @@ gem 'dartsass-sprockets'
 
 #Bootstrap gem
 gem 'bootstrap', '~> 5.3.2'
+
+#For opening sent emails in the browser
+gem "letter_opener", group: :development
